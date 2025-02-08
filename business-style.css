@@ -1,0 +1,289 @@
+:root {
+    --main-bg-color: #f8f9fa;
+    --text-color: #343a40;
+    --top-header-bg: #eef;
+    --dark-overlay: rgba(0, 0, 0, 0.5);
+    --secondary-bg: #555;
+    --navbar-bg: rgba(0, 0, 0, 0.9);
+    --light-gray-border: #ddd;
+    --default-padding: 10px 20px;
+    --transition-duration: 0.3s;
+    --nav-height: 76px;
+    --hero-padding: 80px 20px;
+    --section-padding: 80px 20px;
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --accent-color: #ffc107;
+     --body-font: 'Noto Sans JP', sans-serif;
+}
+
+/* Custom styles for navbar stickiness */
+.sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--navbar-bg) !important;
+     transition: background-color var(--transition-duration) ease, position var(--transition-duration) ease, top var(--transition-duration) ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    transition: background-color var(--transition-duration) ease;
+}
+
+.nav-placeholder {
+    display: none;
+    height: var(--nav-height);
+}
+
+.sticky-header ~ .nav-placeholder {
+    display: block;
+}
+
+/* Reset default styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--body-font);
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Top Header */
+.top-header {
+    background-color: #fff;
+    font-size: 0.9rem;
+    padding: 8px 0;
+}
+
+/* Top Header */
+.top-header {
+    background-color: #fff;
+    font-size: 0.9rem;
+    padding: 8px 0;
+}
+
+.top-header .container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.top-header .tel,
+.top-header .email {
+    color: #333;
+    white-space: nowrap;
+    display: flex; /* アイコンとテキストを横並びにするために追加 */
+    align-items: center; /* アイコンとテキストを中央揃えにするために追加 */
+}
+
+.top-header .email {
+    margin-left: 15px;
+}
+
+/* アイコンとテキストの間隔を調整する */
+.top-header .tel i {
+    margin-right: 5px; /* 電話アイコンの右側にマージンを追加 */
+}
+
+.top-header .email i {
+    margin-right: 5px;  /* メールアイコンの右側にマージンを追加 */
+}
+
+/* Navigation Bar */
+.main-header {
+     transition: background-color 0.3s ease;
+}
+
+.navbar {
+    padding: 0.8rem 0;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin-right: 50px;
+}
+
+.navbar-toggler {
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    order: 1;
+}
+
+/* 既存のCSSはそのまま */
+
+/* Navigation Bar - 下線アニメーションの設定 */
+.navbar-nav .nav-link {
+    position: relative; /* 追加：下線アニメーションのための基準 */
+    color: #fff;
+    font-size: 1.1rem;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+    padding-bottom: 8px; /* 下線との間隔を調整 */
+}
+.navbar-nav .nav-link:hover{
+     color: #ddd;
+}
+.sticky-header .navbar-nav .nav-link {
+    position: relative; /* 追加：下線アニメーションのための基準 */
+     color: #fff;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+        padding-bottom: 8px; /* 下線との間隔を調整 */
+}
+.sticky-header .navbar-nav .nav-link:hover {
+    color: #ddd;
+}
+.navbar-nav .nav-link::before,
+.sticky-header .navbar-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px; /* 下線の太さ */
+    background-color: #fff; /* 下線の色 */
+    transition: width 0.3s ease, left 0.3s ease; /* アニメーション */
+    opacity:0.8;
+}
+
+.navbar-nav .nav-link:hover::before,
+.sticky-header .navbar-nav .nav-link:hover::before {
+    width: 100%;
+    left: 0;
+}
+/* レスポンシブ対応（画面幅が768px以下のとき） */
+@media (max-width: 768px) {
+     .navbar-nav .nav-link,
+    .sticky-header .navbar-nav .nav-link{
+         padding-bottom: 6px;
+    }
+}
+
+.sticky-header.d-none {
+    height: 0 !important;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Business Overview Section */
+.business-overview {
+    padding: 40px 0;
+    background-color: var(--main-bg-color);
+    flex: 1;
+}
+
+.business-overview .container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.business-overview .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    position: relative;
+    display: inline-block;
+    padding-left: 15px;
+    margin-bottom: 1rem;
+}
+
+.business-overview .section-title .vertical-line {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 70%;
+    border-left: 3px solid var(--primary-color);
+    transform: translateY(-50%);
+}
+
+.business-overview .business-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.business-overview .business-item h3 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.business-overview .business-item p {
+     font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--secondary-color);
+}
+.business-overview .business-description {
+  font-size: 1rem;
+    color: var(--secondary-color);
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer .contact-info,
+footer .social-media {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+footer .contact-info p {
+    margin: 0;
+    color: #666;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+   .navbar-brand {
+        margin-right: 40px;
+        font-size: 1.2rem;
+    }
+     .navbar-toggler {
+         top: 0.6rem;
+    }
+    .business-overview .section-title {
+        font-size: 1.6rem;
+    }
+    .business-overview .section-title .vertical-line {
+        height: 60%;
+    }
+    .business-overview .business-item {
+        padding: 15px;
+    }
+    .business-overview .business-item h3 {
+    font-size: 1.2rem;
+     margin-bottom: 5px;
+   }
+    .business-overview .business-description {
+        font-size: 0.9rem;
+    }
+}
